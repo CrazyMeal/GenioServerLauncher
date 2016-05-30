@@ -32,12 +32,10 @@ public class GSLServer {
     public void run(){
         while(this.alive){
             try {
-                Socket s = serverSocket.accept();
-                if(s != null){
-                    System.out.println("Un client s'est connecte");
-                } else{
-                    System.out.println("Personne de connecte");
-                }
+                Thread thread = new Thread(new RemoteClientService(serverSocket.accept()));
+                thread.start();
+
+                this.services.put(thread.getId(), thread);
             } catch (IOException e) {
                 e.printStackTrace();
             }
