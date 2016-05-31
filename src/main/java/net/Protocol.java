@@ -6,6 +6,8 @@ package net;
 public class Protocol {
     public static final int port = 9998;
 
+    public static final byte CONNECT_REQUEST = (byte) 0x10;
+
     public static final byte OK = (byte) 0x90;
     public static final byte NOK = (byte) 0x91;
     public static final byte GENERAL_ERROR = (byte) 0x92;

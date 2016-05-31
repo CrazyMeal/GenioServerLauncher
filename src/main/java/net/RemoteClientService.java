@@ -29,6 +29,11 @@ public class RemoteClientService implements Runnable{
                     case Protocol.TEST:
                         System.out.println("Trame de test recue");
                         break;
+                    case Protocol.CONNECT_REQUEST:
+                        System.out.println("Connecion request received");
+                        this.ndw.writeDiscriminant(Protocol.OK);
+                        this.ndw.send();
+                        break;
                 }
             }
         } catch (IOException e) {
