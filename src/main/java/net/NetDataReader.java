@@ -47,11 +47,13 @@ public class NetDataReader {
         ByteBuffer bb = ByteBuffer.wrap(b);
         return bb.getInt();
     }
-    public byte readByte() throws IOException{
+    public byte readByte() throws IOException {
         byte[] b = new byte[1];
         this.inputStream.read(b);
         return b[0];
     }
+
+
     public void close() throws IOException{
         this.inputStream.close();
     }
